@@ -26,6 +26,11 @@ body {
     rgba(255, 255, 255, 0) 30rem
   );
   --cartBack: rgba(255, 255, 255, 0.38);
+  --footer-background-color: linear-gradient(
+    1deg,
+    rgba(255, 237, 237, 0.85) 0%,
+    rgba(255, 255, 255, 0) 14rem
+  );
 }
 
 ::-webkit-scrollbar {

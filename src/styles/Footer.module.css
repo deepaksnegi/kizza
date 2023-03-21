@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 6rem;
+  background: var(--footer-background-color);
+}
+
+.footer > span {
+  color: var(--themeRed);
+  font-weight: bold;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  flex: 1;
+}
+
+.logo:first-letter {
+  color: var(--themeRed);
+}
+
+.social {
+  display: flex;
+  gap: 1rem;
+}
