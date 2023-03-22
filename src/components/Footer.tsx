@@ -16,7 +16,7 @@ const Footer = (props: Props) => {
         <Image src={twitter} alt="twitter" height={40} width={40} />
         <Image src={instagram} alt="instagram" height={40} width={40} />
       </div>
-      <div className={style.logo}>
+      <div className="logo">
         <span>Kizza</span>
       </div>
     </div>

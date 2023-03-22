@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 import style from "../styles/Header.module.css";
-import logo from "../assets/Logo.png";
 import cartIcon from "../assets/cartIcon.svg";
 
 type Props = {};
@@ -9,7 +8,7 @@ type Props = {};
 const Header = (props: Props) => {
   return (
     <div className={style.header}>
-      <div className={style.logo}>
+      <div className="logo">
         <span>Kizza</span>
       </div>
 

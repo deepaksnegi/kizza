@@ -12,16 +12,6 @@
   font-weight: bold;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  flex: 1;
-}
-
-.logo:first-letter {
-  color: var(--themeRed);
-}
-
 .social {
   display: flex;
   gap: 1rem;

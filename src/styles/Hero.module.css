@@ -1,0 +1,123 @@
+.hero {
+  display: flex;
+  gap: 2rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cherry {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  background-color: var(--pink);
+  padding: 1rem;
+  border-radius: 2rem;
+  margin-top: 3rem;
+  color: var(--themeRed);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.themeTextColor {
+  color: var(--themeRed);
+}
+
+.info {
+  width: 70%;
+  color: var(--gray);
+  font-weight: 600;
+}
+
+.button {
+  padding: 1rem 2.5rem;
+}
+
+.right {
+  position: relative;
+}
+
+.heroImage {
+  position: absolute;
+  width: 38rem;
+  height: 38rem;
+  top: -5rem;
+  left: -5rem;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 6rem;
+  left: -6rem;
+  width: max-content;
+  padding: 1rem;
+  border-radius: 5rem;
+  gap: 1rem;
+  background-color: white;
+  box-shadow: var(--shadow);
+  color: var(--themeRed);
+}
+
+.contact:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.contact > div {
+  background: rgb(59, 208, 59);
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pizza {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: white;
+  box-shadow: var(--shadow);
+  padding: 0.5rem;
+  position: absolute;
+  bottom: 6rem;
+  left: 19rem;
+  width: max-content;
+  border-radius: 0.5rem;
+}
+
+.pizza > div {
+  display: flex;
+}
+
+.pizza > div > img {
+  object-fit: contain;
+  border-radius: 0.5rem;
+  height: 4rem;
+  width: 6rem;
+}
+
+.pizzaDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-weight: bold;
+}
+
+.pizza:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
