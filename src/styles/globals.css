@@ -75,3 +75,7 @@ button {
   font-size: 1.1rem;
   cursor: pointer;
 }
+
+.themeTextColor {
+  color: var(--themeRed);
+}

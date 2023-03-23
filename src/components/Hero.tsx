@@ -20,7 +20,7 @@ const Hero = () => {
           <span>In Delivering </span>
           <span>
             Your
-            <span className={style.themeTextColor}> Pizza</span>
+            <span className="themeTextColor"> Pizza</span>
           </span>
         </div>
 
@@ -60,7 +60,7 @@ const Hero = () => {
             <span>Veggie Paradise </span>
 
             <span>
-              <span className={style.themeTextColor}>₹</span>459
+              <span className="themeTextColor">₹</span>459
             </span>
           </div>
         </div>
