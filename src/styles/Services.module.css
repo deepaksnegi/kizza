@@ -1,0 +1,48 @@
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
+
+.heading :nth-child(1) {
+  color: var(--themeRed);
+  text-transform: uppercase;
+}
+
+.heading :nth-child(2),
+.heading :nth-child(3) {
+  font-size: 2rem;
+}
+
+.services {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.service img {
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover;
+}
+
+.serviceTitle {
+  font-weight: bold;
+}
+
+.serviceInfo {
+  color: var(--gray);
+  word-wrap: break-word;
+  width: 20rem;
+  text-align: center;
+}

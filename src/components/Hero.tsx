@@ -34,7 +34,15 @@ const Hero = () => {
 
       <div className={style.right}>
         <div className={style.heroImage}>
-          <Image src={heroImage} alt="pizza image" fill />
+          <Image
+            src={heroImage}
+            alt="pizza image"
+            fill
+            sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+            priority
+          />
         </div>
 
         <div className={style.contact}>
