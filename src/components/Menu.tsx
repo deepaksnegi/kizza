@@ -27,21 +27,6 @@ const menuItems = [
     price: [170, 250, 300],
     image: deluxePizza,
   },
-  {
-    name: "Deluxe Pizza",
-    price: [170, 250, 300],
-    image: deluxePizza,
-  },
-  {
-    name: "Deluxe Pizza",
-    price: [170, 250, 300],
-    image: deluxePizza,
-  },
-  {
-    name: "Deluxe Pizza",
-    price: [170, 250, 300],
-    image: deluxePizza,
-  },
 ];
 
 const Menu = (props: Props) => {
@@ -55,7 +40,7 @@ const Menu = (props: Props) => {
 
       <div className={style.items}>
         {menuItems.map(({ name, image, price }) => (
-          <Link href={`/item/${name}`} className={style.item}>
+          <Link href={`/pizza/${name}`} className={style.item}>
             <div className={style.itemImage}>
               <Image src={image} alt={name} />
             </div>
