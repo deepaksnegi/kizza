@@ -1,33 +1,10 @@
 import React from "react";
 import style from "../styles/Menu.module.css";
-import deluxePizza from "../assets/p1.jpg";
+import { menuItems } from "../assets/data/pizzas";
 import Image from "next/image";
 import Link from "next/link";
 
 type Props = {};
-
-const menuItems = [
-  {
-    name: "Deluxe Pizza",
-    price: [170, 250, 300],
-    image: deluxePizza,
-  },
-  {
-    name: "Italian Pizza",
-    price: [160, 230, 290],
-    image: deluxePizza,
-  },
-  {
-    name: "Deluxe Pizza",
-    price: [170, 250, 300],
-    image: deluxePizza,
-  },
-  {
-    name: "Deluxe Pizza",
-    price: [170, 250, 300],
-    image: deluxePizza,
-  },
-];
 
 const Menu = (props: Props) => {
   return (
@@ -39,8 +16,8 @@ const Menu = (props: Props) => {
       </div>
 
       <div className={style.items}>
-        {menuItems.map(({ name, image, price }) => (
-          <Link href={`/pizza/${name}`} className={style.item}>
+        {menuItems.map(({ id, name, image, price }) => (
+          <Link href={`/pizza/${id}`} className={style.item} key={id}>
             <div className={style.itemImage}>
               <Image src={image} alt={name} />
             </div>

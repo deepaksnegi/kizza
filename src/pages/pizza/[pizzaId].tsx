@@ -6,6 +6,7 @@ import foodImage from "../../assets/p1.jpg";
 import style from "../../styles/Pizza.module.css";
 import leftArrow from "../../assets/arrowLeft.png";
 import rightArrow from "../../assets/arrowRight.png";
+import { menuItems } from "@/assets/data/pizzas";
 
 const variants = ["Small", "Regular", "Large"];
 
@@ -101,12 +102,17 @@ export const getStaticPaths: GetStaticPaths = () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = () => {
-  const pizza = {
-    name: "Deluxe Pizza",
-    price: [170, 250, 300],
-    image: foodImage,
-  };
+export const getStaticProps: GetStaticProps<{ pizza: FoodItem }> = (
+  context
+) => {
+  const params = context.params;
+  const pizza = menuItems.find((item) => item.id === params?.pizzaId);
+
+  if (!pizza) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: { pizza },

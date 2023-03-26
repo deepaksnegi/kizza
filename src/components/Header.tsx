@@ -2,15 +2,16 @@ import Image from "next/image";
 import React from "react";
 import style from "../styles/Header.module.css";
 import cartIcon from "../assets/cartIcon.svg";
+import Link from "next/link";
 
 type Props = {};
 
 const Header = (props: Props) => {
   return (
     <div className={style.header}>
-      <div className="logo">
+      <Link href="/" className="logo">
         <span>Kizza</span>
-      </div>
+      </Link>
 
       <ul className={style.menu}>
         <li>Home</li>
