@@ -8,7 +8,7 @@ type Props = {};
 
 const Menu = (props: Props) => {
   return (
-    <div className={style.menu}>
+    <div className={style.menu} id="menu">
       <div className={style.heading}>
         <span>Our Menu</span>
         <span>Menu That Always</span>

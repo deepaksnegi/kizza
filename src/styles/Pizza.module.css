@@ -95,3 +95,50 @@
   padding: 0.5em 1rem;
   font-style: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+  .pizza {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2rem;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .pizzaImage {
+    width: 50%;
+    height: 50%;
+  }
+
+  .pizzaDetail {
+    font-size: 1.4rem;
+    gap: 3rem;
+  }
+
+  .pizzaDetail > :nth-child(2) {
+    font-size: 1rem;
+  }
+
+  .sizes {
+    font-size: 1.2rem;
+    gap: 1rem;
+  }
+
+  .variants {
+    flex-wrap: wrap;
+  }
+
+  .quantity {
+    font-size: 1.2rem;
+    gap: 2rem;
+  }
+
+  .counter {
+    gap: 0.7rem;
+  }
+
+  .add {
+    width: 100%;
+    padding: 1rem 0;
+  }
+}

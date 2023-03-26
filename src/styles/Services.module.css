@@ -46,3 +46,24 @@
   width: 20rem;
   text-align: center;
 }
+
+@media screen and (max-width: 768px) {
+  .heading {
+    margin-top: 3rem;
+  }
+
+  .heading :nth-child(2),
+  .heading :nth-child(3) {
+    font-size: 1.8rem;
+  }
+
+  .services {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .serviceInfo {
+    width: 90%;
+  }
+}

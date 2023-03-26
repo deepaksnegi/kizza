@@ -14,9 +14,15 @@ const Header = (props: Props) => {
       </Link>
 
       <ul className={style.menu}>
-        <li>Home</li>
-        <li>Menu</li>
-        <li>Contact</li>
+        <Link href="/">
+          <li>Home</li>
+        </Link>
+        <Link href="/#menu">
+          <li>Menu</li>
+        </Link>
+        <Link href="">
+          <li>Contact</li>
+        </Link>
       </ul>
 
       <div className={style.rightSide}>

@@ -41,6 +41,9 @@
 
 .right {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .heroImage {
@@ -116,4 +119,65 @@
 .pizza:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .left {
+    text-align: center;
+    align-items: center;
+  }
+
+  .cherry {
+    padding: 1rem;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+
+  .heroText {
+    font-size: 2.5rem;
+  }
+
+  .info {
+    width: 100%;
+  }
+
+  .heroImage {
+    position: relative;
+    width: 20rem;
+    height: 20rem;
+    inset: 0;
+  }
+
+  .contact {
+    top: 85%;
+    left: 60%;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .pizza {
+    flex-direction: column;
+    text-align: center;
+    box-shadow: var(--shadow);
+    top: -1rem;
+    left: 0;
+    bottom: 50%;
+    height: max-content;
+  }
+
+  .pizzaDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .pizza:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 }

@@ -54,3 +54,39 @@
   transform: scale(1.1);
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .menu {
+    margin-top: 3rem;
+  }
+
+  .heading {
+    text-align: center;
+  }
+
+  .heading :nth-child(1) {
+    margin-bottom: 1rem;
+  }
+
+  .heading :nth-child(2),
+  .heading :nth-child(3) {
+    font-size: 1.8rem;
+  }
+
+  .items {
+    gap: 1.5rem;
+  }
+
+  .item {
+    font-size: 1rem;
+    font-weight: bold;
+    gap: 0.5rem;
+    height: 40%;
+    width: 40%;
+  }
+
+  .itemImage {
+    height: 100%;
+    width: 100%;
+  }
+}
