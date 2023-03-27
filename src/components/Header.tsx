@@ -26,10 +26,12 @@ const Header = (props: Props) => {
       </ul>
 
       <div className={style.rightSide}>
-        <div className={style.cart}>
-          <Image src={cartIcon} alt="cart" height={35} width={35} />
-          <div className={style.cartBadge}>10</div>
-        </div>
+        <Link href="/cart">
+          <div className={style.cart}>
+            <Image src={cartIcon} alt="cart" height={35} width={35} />
+            <div className={style.cartBadge}>10</div>
+          </div>
+        </Link>
       </div>
     </div>
   );
