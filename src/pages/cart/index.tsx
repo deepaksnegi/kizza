@@ -30,7 +30,7 @@ const Cart = (props: Props) => {
                     <Image src={image} alt={name} />
                   </td>
                   <td>{name}</td>
-                  <td>"Small"</td>
+                  <td>Small</td>
                   <td>{price[0]}</td>
                   <td>120</td>
                   <td>500</td>
