@@ -4,7 +4,7 @@ import style from "../styles/Hero.module.css";
 import cherry from "../assets/Cherry.png";
 import heroImage from "../assets/HeroImage.png";
 import phone from "../assets/phone.svg";
-import pizza from "../assets/p1.jpg";
+import plainPizza from "../assets/plain-pizza.jpg";
 
 const Hero = () => {
   return (
@@ -54,7 +54,7 @@ const Hero = () => {
 
         <div className={style.pizza}>
           <div>
-            <Image src={pizza} alt="pizza image" />
+            <Image src={plainPizza} alt="pizza image" height={80} width={100} />
           </div>
           <div className={style.pizzaDetails}>
             <span>Veggie Paradise </span>

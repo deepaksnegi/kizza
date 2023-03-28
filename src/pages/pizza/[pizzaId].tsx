@@ -39,7 +39,13 @@ const Pizza = (props: Props) => {
     <Layout>
       <div className={style.pizza}>
         <div className={style.pizzaImage}>
-          <Image src={image} alt={name} />
+          <Image
+            src={image}
+            alt={name}
+            sizes="(max-width: 768px) 100vw,
+              (max-width: 1200px) 50vw,
+              33vw"
+          />
         </div>
 
         <div className={style.pizzaDetail}>

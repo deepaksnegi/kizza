@@ -19,7 +19,7 @@ const Menu = (props: Props) => {
         {menuItems.map(({ id, name, image, price }) => (
           <Link href={`/pizza/${id}`} className={style.item} key={id}>
             <div className={style.itemImage}>
-              <Image src={image} alt={name} />
+              <Image src={image} alt={name} height={400} width={400} />
             </div>
             <span>{name}</span>
             <span>

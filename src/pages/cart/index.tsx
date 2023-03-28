@@ -27,7 +27,7 @@ const Cart = (props: Props) => {
               {menuItems.map(({ image, name, id, price }) => (
                 <tr key={id}>
                   <td className={style.tdImage}>
-                    <Image src={image} alt={name} />
+                    <Image src={image} alt={name} height={160} width={160} />
                   </td>
                   <td>{name}</td>
                   <td>Small</td>
