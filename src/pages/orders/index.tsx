@@ -2,8 +2,8 @@ import Layout from "@/components/Layout";
 import React from "react";
 import style from "../../styles/Order.module.css";
 import Image from "next/image";
-import cooking from "../../assets/Cooking.png";
-import onway from "../../assets/Onway.png";
+import cooking from "../../assets/cooking.png";
+import onway from "../../assets/onway.png";
 import billIcon from "../../assets/dollar.svg";
 import packageIcon from "../../assets/package.svg";
 
