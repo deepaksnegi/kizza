@@ -2,15 +2,18 @@ import Layout from "@/components/Layout";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Image, { StaticImageData } from "next/image";
 import React, { useState } from "react";
-import foodImage from "../../assets/p1.jpg";
 import style from "../../styles/Pizza.module.css";
 import leftArrow from "../../assets/arrowLeft.png";
 import rightArrow from "../../assets/arrowRight.png";
 import { menuItems } from "@/assets/data/pizzas";
+import { useAppDispatch } from "@/store/reduxHooks";
+import { addToCart } from "@/store/cartSlice";
+import { useRouter } from "next/router";
 
 const variants = ["Small", "Regular", "Large"];
 
 interface FoodItem {
+  id: string;
   name: string;
   price: number[];
   image: StaticImageData;
@@ -22,10 +25,13 @@ type Props = {
 
 const Pizza = (props: Props) => {
   const { pizza } = props;
-  const { name, image, price } = pizza;
+  const { name, image, price, id } = pizza;
 
   const [size, setSize] = useState(1);
   const [quantity, setQuantity] = useState(1);
+
+  const dispatch = useAppDispatch();
+  const router = useRouter();
 
   const handQuantityChange = (hasIncreased: boolean) => {
     if (hasIncreased) {
@@ -33,6 +39,21 @@ const Pizza = (props: Props) => {
     } else {
       setQuantity((prev) => (prev - 1 > 0 ? prev - 1 : prev));
     }
+  };
+
+  const handleAddToCart = () => {
+    const item = {
+      id,
+      name,
+      image: "",
+      price: price[size],
+      quantity,
+      size,
+      total: price[size] * quantity,
+    };
+
+    dispatch(addToCart(item));
+    router.push("/cart");
   };
 
   return (
@@ -45,6 +66,7 @@ const Pizza = (props: Props) => {
             sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
+            priority
           />
         </div>
 
@@ -94,7 +116,9 @@ const Pizza = (props: Props) => {
             </div>
           </div>
 
-          <button className={style.add}>Add to Cart</button>
+          <button className={style.add} onClick={handleAddToCart}>
+            Add to Cart
+          </button>
         </div>
       </div>
     </Layout>

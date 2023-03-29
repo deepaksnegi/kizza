@@ -29,11 +29,17 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<Item>) => {
       const { payload } = action;
-      const isItemAlreadyInCart = state.items.some(
-        (item) => item.id === payload.id
-      );
+      const item = state.items.find((item) => item.id === payload.id);
 
-      if (!isItemAlreadyInCart) {
+      if (item) {
+        state.totalItems += payload.quantity - item.quantity;
+        state.total += payload.total - item.total;
+
+        item.price = payload.price;
+        item.quantity = payload.quantity;
+        item.total = payload.total;
+        item.size = payload.size;
+      } else {
         state.items.push(payload);
         state.totalItems += payload.quantity;
         state.total += payload.total;

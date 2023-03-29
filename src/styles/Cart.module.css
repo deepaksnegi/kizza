@@ -79,6 +79,33 @@
   border: 2px solid var(--themeRed);
 }
 
+.emptyCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 1.5rem;
+}
+
+.emptyCartCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  gap: 1rem;
+  background: var(--cartBack);
+  box-shadow: var(--shadow);
+  height: 25rem;
+  width: 40rem;
+  color: var(--gray);
+}
+
+.emptyCartCard :nth-child(2) {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--themeRed);
+}
+
 @media screen and (max-width: 768px) {
   .container {
     padding: 1rem;
