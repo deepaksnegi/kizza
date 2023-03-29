@@ -30,6 +30,10 @@
   object-fit: cover;
 }
 
+.removeIcon {
+  cursor: pointer;
+}
+
 .cart {
   display: flex;
   flex-direction: column;
@@ -73,4 +77,32 @@
   background-color: transparent;
   color: var(--themeRed);
   border: 2px solid var(--themeRed);
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .table {
+    border-spacing: 0.1rem;
+  }
+
+  .tdImage {
+    height: 6rem;
+    width: 6rem;
+  }
+
+  .tdImage > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+  }
+
+  .cartDetails {
+    gap: 1rem;
+  }
 }
