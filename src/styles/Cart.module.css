@@ -32,6 +32,7 @@
 
 .removeIcon {
   cursor: pointer;
+  user-select: none;
 }
 
 .cart {

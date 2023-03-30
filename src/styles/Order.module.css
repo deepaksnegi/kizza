@@ -77,3 +77,33 @@
   padding: 0.5rem;
   font-size: 0.8rem;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+
+  .heading {
+    font-size: 1.7rem;
+    font-weight: 600;
+  }
+
+  .details {
+    width: 80%;
+  }
+
+  .statusContainer {
+    justify-content: center;
+    gap: 4rem 9rem;
+    flex-wrap: wrap;
+  }
+
+  .active {
+    top: -1rem;
+    border: 0.3rem solid var(--themeRed);
+    border-top: 0.3rem dotted orange;
+    width: 5rem;
+    height: 5rem;
+  }
+}

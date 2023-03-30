@@ -81,12 +81,11 @@
     font-size: 1rem;
     font-weight: bold;
     gap: 0.5rem;
-    height: 40%;
-    width: 40%;
+    align-items: center;
   }
 
   .itemImage {
-    height: 100%;
-    width: 100%;
+    height: 8rem;
+    width: 10rem;
   }
 }

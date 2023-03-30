@@ -75,6 +75,7 @@ button {
   border: none;
   font-size: 1.1rem;
   cursor: pointer;
+  user-select: none;
 }
 
 .themeTextColor {
