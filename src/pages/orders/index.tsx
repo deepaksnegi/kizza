@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "../../styles/Order.module.css";
 import Image from "next/image";
 import cooking from "../../assets/cooking.png";
@@ -10,6 +10,35 @@ import packageIcon from "../../assets/package.svg";
 type Props = {};
 
 const Orders = (props: Props) => {
+  const [steps, setSteps] = useState([
+    {
+      id: "cooking",
+      name: "Cooking",
+      image: cooking,
+    },
+    {
+      id: "onway",
+      name: "OnWay",
+      image: onway,
+    },
+    { id: "delivered", name: "Delivered", image: packageIcon },
+  ]);
+
+  const [activeStep, setActiveStep] = useState("cooking");
+
+  useEffect(() => {
+    let onwayTimerId = setTimeout(() => setActiveStep("onway"), 5 * 1000);
+    let deliveredTimerId = setTimeout(
+      () => setActiveStep("delivered"),
+      5 * 1000
+    );
+
+    return () => {
+      clearTimeout(onwayTimerId);
+      clearTimeout(deliveredTimerId);
+    };
+  }, []);
+
   return (
     <Layout>
       <div className={style.container}>
@@ -45,23 +74,13 @@ const Orders = (props: Props) => {
             {/* <span className={style.pending}>On Delivery</span> */}
             <span className={style.completed}>Completed</span>
           </div>
-
-          <div className={style.status}>
-            <div className={style.active}></div>
-            <Image src={cooking} alt="cooking" width={50} height={50} />
-            <span>Cooking</span>
-          </div>
-          <div className={style.status}>
-            <div className={style.active}></div>
-            <Image src={onway} alt="cooking" width={50} height={50} />
-            <span>OnWay</span>
-          </div>
-          <div className={style.status}>
-            <div className={style.active}></div>
-
-            <Image src={packageIcon} alt="cooking" width={50} height={50} />
-            <span>Delivered</span>
-          </div>
+          {steps.map(({ name, image, id }) => (
+            <div className={style.status} key={id}>
+              {activeStep === id ? <div className={style.active}></div> : null}
+              <Image src={image} alt={name} width={50} height={50} />
+              <span>{name}</span>
+            </div>
+          ))}
         </div>
       </div>
     </Layout>

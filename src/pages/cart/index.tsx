@@ -5,16 +5,24 @@ import React from "react";
 import style from "../../styles/Cart.module.css";
 import removeIcon from "../../assets/remove.svg";
 import { useAppDispatch, useAppSelector } from "@/store/reduxHooks";
-import { removeFromCart } from "@/store/cartSlice";
+import { emptyCart, removeFromCart } from "@/store/cartSlice";
 import cartIcon from "../../assets/cartIcon.svg";
+import { useRouter } from "next/router";
+
 type Props = {};
 
 const Cart = (props: Props) => {
   const dispatch = useAppDispatch();
   const { items, total, totalItems } = useAppSelector((state) => state.cart);
 
+  const router = useRouter();
   const handleRemoveItem = (id: string) => {
     dispatch(removeFromCart(id));
+  };
+
+  const handleOrder = () => {
+    dispatch(emptyCart());
+    router.push("/orders");
   };
 
   return (
@@ -73,7 +81,7 @@ const Cart = (props: Props) => {
             </div>
 
             <div className={style.paymentOptions}>
-              <button>Pay on Delivery</button>
+              <button onClick={handleOrder}>Pay on Delivery</button>
               <button>Pay Now</button>
             </div>
           </div>
