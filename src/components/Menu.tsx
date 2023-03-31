@@ -24,7 +24,7 @@ const Menu = (props: Props) => {
             <span>{name}</span>
             <span>
               <span className="themeTextColor">₹</span>
-              {price[2]}
+              {price.regular}
             </span>
           </Link>
         ))}

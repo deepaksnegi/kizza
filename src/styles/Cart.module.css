@@ -1,33 +1,76 @@
 .container {
-  padding: 2.2rem;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
 }
 
-.table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 1rem;
+.cartItems {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
 }
 
-.tbody > tr > td {
-  text-align: center;
+.cartItem {
+  display: flex;
+  gap: 1rem;
+  box-shadow: var(--shadow);
+  background: var(--cartBack);
+  padding: 1rem;
+  border-radius: 15px;
+  height: 10rem;
+  width: 27rem;
 }
 
-.tbody > tr > td:nth-child(2) {
-  width: 15%;
-}
-
-.tdImage {
+.image {
+  flex: 1;
+  align-self: center;
   height: 6rem;
-  width: 6rem;
+  width: 100%;
 }
 
-.tdImage > img {
-  width: 100%;
+.image > img {
   height: 100%;
+  width: 100%;
   border-radius: 1rem;
   object-fit: cover;
+}
+
+.description {
+  flex: 2;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description > span {
+  font-weight: bold;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.quantity :first-child {
+  text-transform: capitalize;
+  color: var(--themeRed);
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.price {
+  font-weight: bold;
 }
 
 .removeIcon {
@@ -35,19 +78,20 @@
   user-select: none;
 }
 
-.cart {
+.checkout {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 16rem;
-  padding: 1.6rem;
+  padding: 2rem 1.6rem;
   background: var(--cartBack);
   box-shadow: var(--shadow);
   border-radius: 15px;
+  height: max-content;
 }
 
-.cart > span {
+.checkout > span {
   font-weight: bold;
   font-size: 1.5rem;
 }
@@ -83,7 +127,7 @@
 .emptyCart {
   display: flex;
   justify-content: center;
-  align-items: center;
+  text-align: center;
   margin: 3rem 1.5rem;
 }
 
@@ -109,28 +153,30 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    padding: 1rem;
-    display: flex;
     flex-direction: column;
+    gap: 2rem;
   }
 
-  .table {
-    border-spacing: 0.1rem;
+  .cartItems {
+    gap: 2rem;
+    padding: 0;
   }
 
-  .tdImage {
-    height: 6rem;
-    width: 6rem;
+  .cartItem {
+    gap: 1rem;
+    font-size: 0.8rem;
   }
 
-  .tdImage > img {
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
+  .image {
+    flex: 1.5;
+    align-self: center;
+  }
+
+  .image img {
     object-fit: cover;
   }
 
-  .cartDetails {
+  .quantity {
     gap: 1rem;
   }
 }

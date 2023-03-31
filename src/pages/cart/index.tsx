@@ -29,45 +29,36 @@ const Cart = (props: Props) => {
     <Layout>
       {items.length > 0 ? (
         <div className={style.container}>
-          <div className={style.details}>
-            <table className={style.table}>
-              <thead>
-                <tr>
-                  <th>Pizza</th>
-                  <th>Name</th>
-                  <th>Size</th>
-                  <th>Price</th>
-                  <th>Quantity</th>
-                  <th>Total</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody className={style.tbody}>
-                {items.map(({ image, name, id, price, total, quantity }) => (
-                  <tr key={id}>
-                    <td className={style.tdImage}>
-                      <Image src={image} alt={name} height={160} width={160} />
-                    </td>
-                    <td>{name}</td>
-                    <td>Small</td>
-                    <td>{price}</td>
-                    <td>{quantity}</td>
-                    <td>{total}</td>
-                    <td onClick={() => handleRemoveItem(id)}>
-                      <Image
-                        src={removeIcon}
-                        alt="remove"
-                        className={style.removeIcon}
-                        height={40}
-                        width={40}
-                      />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className={style.cartItems}>
+            {items.map(({ image, name, id, size, price, total, quantity }) => (
+              <div className={style.cartItem}>
+                <div className={style.image}>
+                  <Image src={image} alt={name} height={160} width={160} />
+                </div>
+                <div className={style.description}>
+                  <span>{name}</span>
+                  <div className={style.quantity}>
+                    <span>{size}</span>
+                    <span>
+                      {quantity} x {price}
+                    </span>
+                  </div>
+                </div>
+                <div className={style.priceContainer}>
+                  <Image
+                    src={removeIcon}
+                    alt="remove"
+                    className={style.removeIcon}
+                    height={40}
+                    width={40}
+                    onClick={() => handleRemoveItem(id)}
+                  />
+                  <span className={style.price}>₹ {total}</span>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className={style.cart}>
+          <div className={style.checkout}>
             <span>Cart</span>
             <div className={style.cartDetails}>
               <div>

@@ -15,9 +15,15 @@ const variants = ["Small", "Regular", "Large"];
 interface FoodItem {
   id: string;
   name: string;
-  price: number[];
   image: StaticImageData;
+  price: {
+    small: number;
+    regular: number;
+    large: number;
+  };
 }
+
+type Size = "small" | "regular" | "large";
 
 type Props = {
   pizza: FoodItem;
@@ -27,7 +33,7 @@ const Pizza = (props: Props) => {
   const { pizza } = props;
   const { name, image, price, id } = pizza;
 
-  const [size, setSize] = useState(1);
+  const [size, setSize] = useState<Size>("small");
   const [quantity, setQuantity] = useState(1);
 
   const dispatch = useAppDispatch();
@@ -45,7 +51,7 @@ const Pizza = (props: Props) => {
     const item = {
       id,
       name,
-      image: "",
+      image,
       price: price[size],
       quantity,
       size,
@@ -83,10 +89,12 @@ const Pizza = (props: Props) => {
               {variants.map((variant, index) => (
                 <div
                   className={`${style.size} ${
-                    size === index ? style.selectedSize : ""
+                    size.toLowerCase() === variant.toLowerCase()
+                      ? style.selectedSize
+                      : ""
                   }`}
                   key={variant}
-                  onClick={() => setSize(index)}
+                  onClick={() => setSize(variant.toLowerCase() as Size)}
                 >
                   {variant}
                 </div>

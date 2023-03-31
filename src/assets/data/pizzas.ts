@@ -9,37 +9,37 @@ export const menuItems = [
   {
     id: "deluxePizza",
     name: "Deluxe Pizza",
-    price: [170, 250, 300],
+    price: { small: 170, regular: 250, large: 300 },
     image: deluxePizza,
   },
   {
     id: "italiaPizza",
     name: "Italian Pizza",
-    price: [160, 230, 290],
+    price: { small: 180, regular: 260, large: 310 },
     image: mushroomPizza,
   },
   {
     id: "deluxePizzaC",
     name: "Deluxe Pizza Cheese Burst",
-    price: [200, 270, 350],
+    price: { small: 200, regular: 270, large: 350 },
     image: chickenPizza,
   },
   {
     id: "indiePizza",
     name: "Indie Pizza",
-    price: [140, 200, 270],
+    price: { small: 140, regular: 200, large: 270 },
     image: thinPizza,
   },
   {
     id: "cheesePizza",
     name: "Cheese Burst Pizza",
-    price: [120, 170, 200],
+    price: { small: 120, regular: 170, large: 200 },
     image: cheesePizza,
   },
   {
     id: "peperoniPizza",
     name: "Pepperoni Pizza",
-    price: [140, 200, 270],
+    price: { small: 140, regular: 200, large: 270 },
     image: pepperoniPizza,
   },
 ];

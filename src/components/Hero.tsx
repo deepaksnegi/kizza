@@ -5,8 +5,10 @@ import cherry from "../assets/Cherry.png";
 import heroImage from "../assets/HeroImage.png";
 import phone from "../assets/phone.svg";
 import plainPizza from "../assets/plain-pizza.jpg";
+import { useRouter } from "next/router";
 
 const Hero = () => {
+  const router = useRouter();
   return (
     <div className={style.hero}>
       <div className={style.left}>
@@ -29,7 +31,9 @@ const Hero = () => {
           and free delivery
         </div>
 
-        <button className={style.button}>Get Started</button>
+        <button className={style.button} onClick={() => router.push("#menu")}>
+          Get Started
+        </button>
       </div>
 
       <div className={style.right}>
@@ -53,7 +57,7 @@ const Hero = () => {
         </div>
 
         <div className={style.pizza}>
-          <div>
+          <div onClick={() => router.push("/pizza/deluxePizza")}>
             <Image src={plainPizza} alt="pizza image" height={80} width={100} />
           </div>
           <div className={style.pizzaDetails}>
