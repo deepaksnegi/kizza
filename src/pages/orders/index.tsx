@@ -30,7 +30,7 @@ const Orders = (props: Props) => {
     let onwayTimerId = setTimeout(() => setActiveStep("onway"), 5 * 1000);
     let deliveredTimerId = setTimeout(
       () => setActiveStep("delivered"),
-      5 * 1000
+      10 * 1000
     );
 
     return () => {

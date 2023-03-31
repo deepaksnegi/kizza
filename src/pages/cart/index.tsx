@@ -1,13 +1,12 @@
-import { menuItems } from "@/assets/data/pizzas";
 import Layout from "@/components/Layout";
 import Image from "next/image";
 import React from "react";
 import style from "../../styles/Cart.module.css";
-import removeIcon from "../../assets/remove.svg";
 import { useAppDispatch, useAppSelector } from "@/store/reduxHooks";
 import { emptyCart, removeFromCart } from "@/store/cartSlice";
 import cartIcon from "../../assets/cartIcon.svg";
 import { useRouter } from "next/router";
+import CartItem from "@/components/CartItem";
 
 type Props = {};
 
@@ -25,37 +24,24 @@ const Cart = (props: Props) => {
     router.push("/orders");
   };
 
+  const emptyCartMessage = (
+    <div className={style.emptyCart}>
+      <div className={style.emptyCartCard}>
+        <Image src={cartIcon} alt="cart" height={40} width={40} />
+        <span>Your cart is empty </span>
+        <span>Look like you have not added anything to your cart.</span>
+        <span>Go ahead and explore trending.</span>
+      </div>
+    </div>
+  );
+
   return (
     <Layout>
       {items.length > 0 ? (
         <div className={style.container}>
           <div className={style.cartItems}>
-            {items.map(({ image, name, id, size, price, total, quantity }) => (
-              <div className={style.cartItem}>
-                <div className={style.image}>
-                  <Image src={image} alt={name} height={160} width={160} />
-                </div>
-                <div className={style.description}>
-                  <span>{name}</span>
-                  <div className={style.quantity}>
-                    <span>{size}</span>
-                    <span>
-                      {quantity} x {price}
-                    </span>
-                  </div>
-                </div>
-                <div className={style.priceContainer}>
-                  <Image
-                    src={removeIcon}
-                    alt="remove"
-                    className={style.removeIcon}
-                    height={40}
-                    width={40}
-                    onClick={() => handleRemoveItem(id)}
-                  />
-                  <span className={style.price}>₹ {total}</span>
-                </div>
-              </div>
+            {items.map((item) => (
+              <CartItem pizza={item} onRemoveItem={handleRemoveItem} />
             ))}
           </div>
           <div className={style.checkout}>
@@ -78,14 +64,7 @@ const Cart = (props: Props) => {
           </div>
         </div>
       ) : (
-        <div className={style.emptyCart}>
-          <div className={style.emptyCartCard}>
-            <Image src={cartIcon} alt="cart" height={40} width={40} />
-            <span>Your cart is empty </span>
-            <span>Look like you have not added anything to your cart.</span>
-            <span>Go ahead and explore trending.</span>
-          </div>
-        </div>
+        emptyCartMessage
       )}
     </Layout>
   );

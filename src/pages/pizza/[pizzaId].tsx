@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import React, { useState } from "react";
 import style from "../../styles/Pizza.module.css";
 import leftArrow from "../../assets/arrowLeft.png";
@@ -9,21 +9,9 @@ import { menuItems } from "@/assets/data/pizzas";
 import { useAppDispatch } from "@/store/reduxHooks";
 import { addToCart } from "@/store/cartSlice";
 import { useRouter } from "next/router";
+import { FoodItem, Size } from "@/types/Pizza";
 
 const variants = ["Small", "Regular", "Large"];
-
-interface FoodItem {
-  id: string;
-  name: string;
-  image: StaticImageData;
-  price: {
-    small: number;
-    regular: number;
-    large: number;
-  };
-}
-
-type Size = "small" | "regular" | "large";
 
 type Props = {
   pizza: FoodItem;
