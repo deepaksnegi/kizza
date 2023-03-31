@@ -41,7 +41,11 @@ const Cart = (props: Props) => {
         <div className={style.container}>
           <div className={style.cartItems}>
             {items.map((item) => (
-              <CartItem pizza={item} onRemoveItem={handleRemoveItem} />
+              <CartItem
+                pizza={item}
+                onRemoveItem={handleRemoveItem}
+                key={item.id}
+              />
             ))}
           </div>
           <form className={style.checkout}>
