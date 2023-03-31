@@ -44,8 +44,24 @@ const Cart = (props: Props) => {
               <CartItem pizza={item} onRemoveItem={handleRemoveItem} />
             ))}
           </div>
-          <div className={style.checkout}>
-            <span>Cart</span>
+          <form className={style.checkout}>
+            <span>Checkout</span>
+            <div className={style.checkoutForm}>
+              <input type="text" name="name" placeholder="Name*" required />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number*"
+                required
+              />
+              <textarea
+                name="address"
+                cols={8}
+                rows={3}
+                placeholder="Address*"
+                required
+              ></textarea>
+            </div>
             <div className={style.cartDetails}>
               <div>
                 <span>Items</span>
@@ -53,7 +69,7 @@ const Cart = (props: Props) => {
               </div>
               <div>
                 <span>Total</span>
-                <span>{total}</span>
+                <span>₹ {total}</span>
               </div>
             </div>
 
@@ -61,7 +77,7 @@ const Cart = (props: Props) => {
               <button onClick={handleOrder}>Pay on Delivery</button>
               <button>Pay Now</button>
             </div>
-          </div>
+          </form>
         </div>
       ) : (
         emptyCartMessage
