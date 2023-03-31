@@ -2,7 +2,7 @@ import { Item } from "@/types/Cart";
 import Image from "next/image";
 import React from "react";
 import style from "../styles/Cart.module.css";
-import removeIcon from "../../assets/remove.svg";
+import removeIcon from "../assets/remove.svg";
 
 type Props = {
   pizza: Item;
