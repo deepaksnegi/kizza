@@ -15,27 +15,48 @@ const Orders = (props: Props) => {
       id: "cooking",
       name: "Cooking",
       image: cooking,
+      status: "active",
     },
     {
       id: "onway",
       name: "OnWay",
       image: onway,
+      status: "pending",
     },
-    { id: "delivered", name: "Delivered", image: packageIcon },
+    {
+      id: "delivered",
+      name: "Delivered",
+      image: packageIcon,
+      status: "pending",
+    },
   ]);
 
-  const [activeStep, setActiveStep] = useState("cooking");
+  let activeStepIndex = 0;
 
   useEffect(() => {
-    let onwayTimerId = setTimeout(() => setActiveStep("onway"), 5 * 1000);
-    let deliveredTimerId = setTimeout(
-      () => setActiveStep("delivered"),
-      10 * 1000
-    );
+    let timeId: NodeJS.Timer;
+
+    timeId = setInterval(() => {
+      if (activeStepIndex >= steps.length) {
+        return clearInterval(timeId);
+      }
+
+      const updatedSteps = steps.map((step, index) => {
+        if (index === activeStepIndex) {
+          step.status = "completed";
+        }
+
+        if (index === activeStepIndex + 1) {
+          step.status = "active";
+        }
+        return step;
+      });
+      setSteps(updatedSteps);
+      activeStepIndex++;
+    }, 5 * 1000);
 
     return () => {
-      clearTimeout(onwayTimerId);
-      clearTimeout(deliveredTimerId);
+      clearInterval(timeId);
     };
   }, []);
 
@@ -74,11 +95,16 @@ const Orders = (props: Props) => {
             {/* <span className={style.pending}>On Delivery</span> */}
             <span className={style.completed}>Completed</span>
           </div>
-          {steps.map(({ name, image, id }) => (
+          {steps.map(({ name, image, id, status }) => (
             <div className={style.status} key={id}>
-              {activeStep === id ? <div className={style.active}></div> : null}
+              {status === "active" ? <div className={style.active} /> : null}
               <Image src={image} alt={name} width={50} height={50} />
               <span>{name}</span>
+              {status === "completed" ? (
+                <span className={style.completed}>Completed</span>
+              ) : (
+                <span className={style.pending}>Pending</span>
+              )}
             </div>
           ))}
         </div>
